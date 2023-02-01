@@ -1,11 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&family=Roboto:wght@100;300&display=swap');
+
 * {
-    font-family: Roboto;
-  }
-  em {
-    font-style: normal;
-    color: red;
-  }
-  .section-header {
-    font-size: 20px;
-  }
+  font-family: Montserrat;
+  box-sizing: border-box;
+  animation: fadein;
+  animation-duration: 1.5s;
+}
+
+@keyframes fadein {
+  from {opacity: 0}
+  to {opacity: 1}
+  from {scale: 0.8}
+  to {scale: 1}
+}
+
+.section-header {
+  font-size: 20px;
+}
+
+.section-details {
+  font-size: 15px;
+}
+
+.section-subheader {
+  font-size: 15px;
+}
+
+.buttons li {
+  display: inline-block;
+  width: auto;
+  height: 10rem;
+  padding: 0 1.25rem;
+  vertical-align: middle;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 0.5rem;
+  color: black;
+  padding: 0.5em;
+  text-decoration: none;
+}
+
+.hoverable {
+  background-color: rgb(0,0,0,0.1);
+  transition: scale 0.3s, background-color 0.3s;
+}
+
+.hoverable:hover {
+  scale: 1.2;
+  background-color: rgba(36, 217, 214, 0.7);
+}
+
+
+.main-header {
+  padding-bottom: 30px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
