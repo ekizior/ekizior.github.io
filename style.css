@@ -7,7 +7,7 @@
   animation-duration: 1s;
 }
 
-.grid-container {
+.grid-index {
   display: grid;
   padding-top: 7.5rem;
   padding-bottom: 2.5rem;
@@ -21,8 +21,18 @@
   gap: 5rem;
 }
 
+.grid-construction {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(450px, 1fr));
+}
+
+.grid-item-center {
+  justify-self: center;
+  align-self: center;
+}
+
 .grid-item {
-  border: 3px solid black;
+  border: 0.1rem solid black;
   background-color: rgba(110, 50, 184, 0.1);
 }
 
@@ -62,7 +72,6 @@
   width: 100%;
   object-fit: cover;
   border-radius: 0.25rem;
-  border-width: 20px;
 }
 
 .me-pic2 {
@@ -70,7 +79,6 @@
   width: auto;
   object-fit: cover;
   border-radius: 0.25rem;
-  border-width: 20px;
 }
 
 .me-pic-box {
@@ -85,16 +93,16 @@
 }
 
 .section-header {
-  font-size: 50px;
+  font-size: 3.3rem;
   margin-bottom: 0;
 }
 
 .section-details {
-  font-size: 20px;
+  font-size: 1.3rem;
 }
 
 .section-subheader {
-  font-size: 30px;
+  font-size: 1.9rem;
 }
 
 .buttons li {
