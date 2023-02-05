@@ -37,9 +37,15 @@
   grid-template-rows: repeat(auto-fit, minmax(450px, 1fr));
 }
 
-.grid-container2 {
-  padding-left: 7.5rem;
-  gap: 5rem;
+.grid-about {
+  display: grid;
+  padding-top: 7.5rem;
+  padding-bottom: 2.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  justify-content: center;
 }
 
 .grid-item-center {
@@ -87,8 +93,8 @@
 }
 
 .me-pic2 {
-  height: 40rem;
-  width: auto;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
   border-radius: 0.25rem;
 }
