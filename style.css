@@ -181,7 +181,6 @@ html, body {
 
   .grid-buttons {
     display: grid;
-    background-color: brown;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     justify-items: center;
