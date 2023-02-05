@@ -165,8 +165,12 @@ html, body {
 
   .grid-construction {
     display: grid;
+    padding-top: 7.5rem;
+    padding-bottom: 2.5rem;
+    gap: 1.5rem;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    justify-content: center;
   }
 
   .grid-index {
