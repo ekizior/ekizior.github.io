@@ -32,6 +32,12 @@
   align-items: bottom;
 }
 
+.grid-buttons-projects {
+  display:grid;
+  justify-items: center;
+  gap: 1rem;
+}
+
 .grid-socials {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -101,7 +107,7 @@
 }
 
 .grid-academics {
-  padding: 3rem;
+  padding: 2rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -109,7 +115,7 @@
     ". topbub ."
     ". midbub ."
     "leftbub . rightbub";
-  gap: 1.5rem;
+  gap: 1rem;
   justify-items: center;
   align-items: center;
 }
@@ -142,14 +148,37 @@
   align-content: center;
 }
 
+.grid-project {
+  display: grid;
+  padding-top: 7.5rem;
+  padding-bottom: 2.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 1.5rem;
+  justify-content: center;
+  align-content: center;
+}
+
 .grid-item-center {
   justify-self: center;
   align-self: center;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 .grid-item {
   border: 0.1rem solid black;
   background-color: rgba(110, 50, 184, 0.1);
+}
+
+.grid-item-background {
+  border-radius: 0.5rem;
 }
 
 .grid-col-span-2 {
