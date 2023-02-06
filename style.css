@@ -32,12 +32,6 @@
   align-items: bottom;
 }
 
-.grid-buttons-projects {
-  display:grid;
-  justify-items: center;
-  gap: 1rem;
-}
-
 .grid-socials {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -74,6 +68,10 @@
   gap: 0.75rem;
   justify-items: center;
   align-items: center;
+}
+
+.projects-nav a {
+  margin: 2rem;
 }
 
 .resize {
