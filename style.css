@@ -24,6 +24,14 @@
   align-items: bottom;
 }
 
+.grid-buttons-teaching {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  justify-items: center;
+  align-items: bottom;
+}
+
 .grid-socials {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -35,6 +43,91 @@
 .grid-construction {
   display: grid;
   grid-template-rows: repeat(auto-fit, minmax(450px, 1fr));
+}
+
+.grid-teaching {
+  display: grid;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas: 
+    "top top"
+    "left1 right1"
+    "left2 right2"
+    "left3 right3"
+    "nav nav";
+  gap: 0.75rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.resize {
+  width: 250px;
+  height: auto;
+}
+
+.teaching-nav {
+  grid-area: nav;
+}
+
+.teaching-header {
+  grid-area: top;
+}
+
+.teaching-text1 {
+  grid-area: left1;
+}
+
+.teaching-text2 {
+  grid-area: right2;
+}
+
+.teaching-text3 {
+  grid-area: left3;
+}
+
+.teaching-pic1 {
+  grid-area: right1;
+}
+
+.teaching-pic2 {
+  grid-area: left2;
+}
+
+.teaching-pic3 {
+  grid-area: right3;
+}
+
+.grid-academics {
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    ". topbub ."
+    ". midbub ."
+    "leftbub . rightbub";
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.central-bubble {
+  grid-area: midbub;
+}
+
+.bubble1 {
+  grid-area: topbub;
+}
+
+.bubble2 {
+  grid-area: leftbub;
+}
+
+.bubble3 {
+  grid-area: rightbub;
 }
 
 .grid-about {
@@ -138,6 +231,16 @@
   color: black;
   padding: 0.5em;
   text-decoration: none;
+}
+
+.r-button {
+  display: inline-block;
+  border-radius: 50%;
+  color: black;
+  padding: 6rem;
+  text-decoration: none;
+  font-size: larger;
+  font-weight: bold;
 }
 
 .hoverable {
