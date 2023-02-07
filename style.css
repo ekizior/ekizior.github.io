@@ -32,6 +32,20 @@
   align-items: bottom;
 }
 
+.grid-personal {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2rem;
+  grid-template-columns: 1fr 0.5fr 0.1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: 
+    "top image1 ."
+    "mid image1 ."
+    "bot image2 .";
+  justify-items:center;
+  align-items: center;
+}
+
 .grid-socials {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -66,8 +80,27 @@
     "left3 right3"
     "nav nav";
   gap: 0.75rem;
-  justify-items: center;
-  align-items: center;
+}
+
+.personal-header {
+  grid-area: top;
+}
+
+.personal-text {
+  grid-area: mid;
+}
+
+.personal-buttons {
+  grid-area: bot;
+}
+
+.personal-pic3 {
+  grid-area: image2;
+  
+}
+
+.personal-pic4 {
+  grid-area: image1;
 }
 
 .projects-nav a {
