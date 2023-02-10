@@ -68,6 +68,7 @@
 
 .grid-teaching {
   display: grid;
+  margin: 5rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 1.5rem;
@@ -90,6 +91,7 @@
 
 .personal-text {
   grid-area: mid;
+  margin: 3rem;
 }
 
 .personal-buttons {
@@ -365,6 +367,7 @@ html, body {
 
   .grid-about {
     display: grid;
+    margin: 1.5rem;
     padding-top: 7.5rem;
     padding-bottom: 2.5rem;
     grid-template-columns: 1fr;
