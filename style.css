@@ -93,6 +93,7 @@
 
 .personal-text {
   grid-area: mid;
+  font-size: 3px;
 }
 
 .personal-buttons {
