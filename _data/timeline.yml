@@ -1,17 +1,13 @@
-- title: Student, Harvard CS
-  from: 2014
-  to: 2018
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-- title: Software Engineer, Google, UK
-  from: 2018
+- title: Student, UC Berkeley EECS
+  from: 2021
   to: present
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+- title: Undergraduate Student Instructor (uGSI), UC Berkeley EECS
+  from: 2022
+  to: present
+  description: Instructed 30+ students in weekly 2-hour discussion in the implementation of various data structures such as HashMaps, Deques, Disjoint Sets, B-Trees. Led students through 24 labs, 4 projects, and 4 homework assignments in weekly office hours. Led internal projects team in developing detailed project specifications, auto grader infrastructure, and optimized solutions. Exemplified leadership by managing the classroom, fostering a collaborative and equitable learning environment. Assisted 6 struggling students in support meetings by connecting them with academic & mental health resources
