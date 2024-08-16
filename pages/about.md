@@ -8,11 +8,15 @@ weight: 3
 # **About Me**
 
 Hi I am **{{ site.author.name }}** :wave:,<br>
-I'm a junior at UC Berkeley studying Electrical Engineering and Computer Science. I hail from central California, where I graduated from Clovis North High School as Valedictorian and a National Merit Scholar in 2021. My academic interests include CS education and game development. Outside of class, I enjoy working out, climbing, teaching music, and gaming. I am actively seeking software engineering internship opportunities for the upcoming summer, and I welcome all relevant contacts.
+I am currently a student at UC Berkeley pursuing a degree in Electrical Engineering & Computer Science. Whether it's through my work as a coding instructor, music tutor, or software developer, I am passionate about making an impact on people through education and technology.
 
 <div class="row">
-{% include about/skills.html title="Programming Skills" source=site.data.programming-skills %}
-{% include about/skills.html title="Other Skills" source=site.data.other-skills %}
+{% include about/skills.html title="Software Skills" source=site.data.programming-skills %}
+{% include about/skills.html title="Hardware Skills" source=site.data.hardware-skills %}
+</div>
+
+<div class="row">
+{% include about/timeline.html %}
 </div>
 
 <div class="row">
