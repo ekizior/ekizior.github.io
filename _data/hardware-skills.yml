@@ -1,0 +1,19 @@
+- name: Java
+  percentage: 100
+  color: danger
+
+- name: Python
+  percentage: 100
+  color: danger
+
+- name: HTML5/CSS3
+  percentage: 100
+  color:
+
+- name: Go
+  percentage: 100
+  color:
+
+- name: SQL (MySQL, PostgreSQL)
+  percentage: 100
+  color: secondary
