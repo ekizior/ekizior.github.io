@@ -356,7 +356,7 @@ body { font-family: "Poppins", sans-serif; }
 
 /* Comment.PreprocFile */
 [data-theme="light"] #theme-toggler:before { content: "🌙"; }
-[data-theme="dark"] #theme-toggler:before { content: "🌞"; }
+[data-theme="dark"] #theme-toggler:before { content: "☀️"; }
 
 [data-theme="light"] .navbar-themed .navbar-brand, [data-theme="light"] .navbar-themed .navbar-nav .nav-link.active { color: #343a40; }
 [data-theme="dark"] .navbar-themed .navbar-brand, [data-theme="dark"] .navbar-themed .navbar-nav .nav-link.active { color: rgba(255, 255, 255, 0.9); }

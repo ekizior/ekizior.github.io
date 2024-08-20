@@ -1,10 +1,7 @@
 ---
-name: GDD Project
-tools: [Unity, C]
-image: /assets/unity.png
-description: This project is in progress, but will be displayed here upon completion. Check back soon for updates!
+name: Gravitas
+tools: [Unity, C#]
+image: /assets/gravitas.png
+description: An original game developed with Unity. See if you can solve all of the levels!
+external_url: https://huanger2.itch.io/gravitas
 ---
-
-# GDD Project
-
-This project is under construction.
