@@ -135,7 +135,7 @@ body { font-family: "Poppins", sans-serif; }
 
 .markdown-body h1, .markdown-body h2 { margin-top: 32px; }
 .markdown-body hr { background: #6c757d; }
-.markdown-body img:not(.emoji) { display: block; max-width: 100%; height: auto; margin: 1rem auto; }
+.markdown-body img:not(.emoji) { display: block; max-width: 100%; height: auto; }
 .markdown-body .video { position: relative; padding-bottom: 56.25%; margin-bottom: 1rem; width: 100%; }
 .markdown-body .video iframe { position: absolute; height: 100%; width: 100%; }
 .markdown-body a:not(.btn):not([class^="carousel-"]):not([class^="list-"]):not(.no-underline) { display: inline-block; text-decoration: none; }
@@ -153,7 +153,7 @@ body { font-family: "Poppins", sans-serif; }
 .markdown-body table:not(.highlight) tr:nth-child(even) { background-color: rgba(0, 0, 0, 0.05); }
 
 .project.card { border-radius: 15px; text-decoration: none !important; margin: 10px auto; transition: transform 400ms; }
-.project.card .card-img-top { border-radius: 15px 15px 0 0; }
+.project.card .card-img-top { border-radius: 15px 15px 0 0; vertical-align: top; }
 .project.card:hover:not(.post) { transform: translateY(-8px); box-shadow: -2px 8px 40px -12px rgba(0, 0, 0, 0.24); }
 
 .timeline-body { position: relative; border-radius: 0 15px 15px 0; padding: 5px 0; }

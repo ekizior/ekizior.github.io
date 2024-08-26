@@ -52,9 +52,15 @@ author:
 
 ### Collections ###
 collections:
-  projects:
+  projects-software:
     output: true
-    permalink: /projects/:name
+    permalink: /projects-software/:name
+  projects-hardware:
+    output: true
+    permalink: /projects-hardware/:name
+  topProjects:
+    output: true
+    permalink: /topProjects/:name
   # elements:                                             # For Documentation Only
   #   output: true                                        # For Documentation Only
 
@@ -85,7 +91,17 @@ buymeacoffee:
 defaults:
   - scope:
       path: ""
-      type: "projects"
+      type: "projects-software"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "projects-hardware"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "topProjects"
     values:
       layout: "page"
   # - scope:                                              # For Documentation Only
