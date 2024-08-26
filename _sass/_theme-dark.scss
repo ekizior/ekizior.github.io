@@ -81,4 +81,12 @@ $dark-900: #17191a;
   .timeline-body .timeline-item:after{
     background-color: $dark-900;
   }
+
+  .timeline-body-red .timeline-item-red:after{
+    background-color: $dark-900;
+  }
+
+  .timeline-body-green .timeline-item-green:after{
+    background-color: $dark-900;
+  }
 }

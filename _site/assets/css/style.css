@@ -163,6 +163,20 @@ body { font-family: "Poppins", sans-serif; }
 .timeline-body .timeline-item .content { margin: 40px; padding-bottom: 20px; border-bottom: 1px dashed #343a40; }
 .timeline-body .timeline-item .content .date { margin-top: -5px; margin-bottom: 15px; color: #6c757d; }
 
+.timeline-body-green { position: relative; border-radius: 0 15px 15px 0; padding: 5px 0; }
+.timeline-body-green:after { content: ""; width: 4px; height: 100%; background-color: #28a745; position: absolute; left: -4px; top: 0; }
+.timeline-body-green .timeline-item-green { position: relative; }
+.timeline-body-green .timeline-item-green:after { content: ""; width: 20px; height: 20px; border-radius: 50%; border: 4px solid #28a745; background-color: #f8f9fa; position: absolute; left: -12px; top: 8px; z-index: 10; }
+.timeline-body-green .timeline-item-green .content { margin: 40px; padding-bottom: 20px; border-bottom: 1px dashed #343a40; }
+.timeline-body-green .timeline-item-green .content .date { margin-top: -5px; margin-bottom: 15px; color: #6c757d; }
+
+.timeline-body-red { position: relative; border-radius: 0 15px 15px 0; padding: 5px 0; }
+.timeline-body-red:after { content: ""; width: 4px; height: 100%; background-color: #dc3545; position: absolute; left: -4px; top: 0; }
+.timeline-body-red .timeline-item-red { position: relative; }
+.timeline-body-red .timeline-item-red:after { content: ""; width: 20px; height: 20px; border-radius: 50%; border: 4px solid #dc3545; background-color: #f8f9fa; position: absolute; left: -12px; top: 8px; z-index: 10; }
+.timeline-body-red .timeline-item-red .content { margin: 40px; padding-bottom: 20px; border-bottom: 1px dashed #343a40; }
+.timeline-body-red .timeline-item-red .content .date { margin-top: -5px; margin-bottom: 15px; color: #6c757d; }
+
 .highlight .w, [data-theme="dark"] pre .w, [data-theme="dark"] code.highlighter-rouge .w { color: #bbbbbb; }
 
 /* Text.Whitespace */
@@ -462,3 +476,5 @@ body { font-family: "Poppins", sans-serif; }
 [data-theme="dark"] .list-group-item-action:hover, [data-theme="dark"] .list-group-item-action:focus { background-color: #1d1d1e; }
 [data-theme="dark"] .post footer { text-decoration: none; }
 [data-theme="dark"] .timeline-body .timeline-item:after { background-color: #17191a; }
+[data-theme="dark"] .timeline-body-red .timeline-item-red:after { background-color: #17191a; }
+[data-theme="dark"] .timeline-body-green .timeline-item-green:after { background-color: #17191a; }
