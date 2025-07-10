@@ -44,7 +44,7 @@ export function Contact() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-purple-500 mx-auto rounded-full" />
             <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
-              I'm always interested in new opportunities, collaborations, or just a friendly chat about technology and education.
+              I&apos;m always interested in new opportunities, collaborations, or just a friendly chat about technology and education.
             </p>
           </motion.div>
 
@@ -110,7 +110,7 @@ export function Contact() {
               <div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-6">Connect With Me</h3>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  I'm currently based in the Bay Area and always open to discussing new opportunities, 
+                  I&apos;m currently based in the Bay Area and always open to discussing new opportunities, 
                   collaborations, or interesting projects. Feel free to reach out!
                 </p>
               </div>
@@ -170,6 +170,24 @@ export function Contact() {
                 <p className="text-gray-600">Bay Area, California</p>
                 <p className="text-sm text-gray-500 mt-1">Available for remote opportunities</p>
               </div>
+
+              {/* Personal Touch - Dog Photo */}
+              <motion.div 
+                className="relative"
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl opacity-20 blur-lg transform rotate-2" />
+                <div className="relative bg-white rounded-xl p-4 shadow-lg">
+                  <img
+                    src="/assets/dog.jpg"
+                    alt="My dog"
+                    className="w-full h-32 object-cover rounded-lg mb-3"
+                  />
+                  <p className="text-sm text-gray-600 text-center">
+                    &quot;My coding buddy says hi! 🐕✨&quot;
+                  </p>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </motion.div>

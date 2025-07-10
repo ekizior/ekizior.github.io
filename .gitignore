@@ -1,4 +1,4 @@
-# Jekyll build artifacts
+# Jekyll build artifacts (from original site)
 _site/
 .sass-cache/
 .jekyll-cache/
@@ -9,8 +9,13 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Package manager files
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
 
 # Environment variables
 .env
@@ -18,6 +23,7 @@ yarn.lock
 .env.development.local
 .env.test.local
 .env.production.local
+.env*.local
 
 # IDE and editor files
 .vscode/
@@ -25,8 +31,6 @@ yarn.lock
 *.swp
 *.swo
 *~
-.DS_Store
-Thumbs.db
 
 # OS generated files
 .DS_Store
@@ -51,8 +55,6 @@ pids
 # Coverage directory used by tools like istanbul
 coverage/
 *.lcov
-
-# nyc test coverage
 .nyc_output
 
 # Dependency directories
@@ -83,8 +85,11 @@ jspm_packages/
 .cache
 .parcel-cache
 
-# next.js build output
-.next
+# Next.js build output
+.next/
+out/
+dist/
+build/
 
 # nuxt.js build output
 .nuxt
@@ -114,6 +119,9 @@ temp/
 # Local Netlify folder
 .netlify
 
+# Vercel
+.vercel
+
 # Backup files
 *.bak
 *.backup
@@ -133,8 +141,22 @@ temp/
 .bundle/
 vendor/
 *.gem
+
 # Info files
 .info.md
 
 # Local files
 local/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Turbo
+.turbo
+
+# Storybook build outputs
+storybook-static
+
+# Misc
+*.pem

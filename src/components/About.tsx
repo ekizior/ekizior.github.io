@@ -48,7 +48,7 @@ export function About() {
             {/* Personal Story */}
             <motion.div variants={itemVariants} className="space-y-6">
               <p className="text-lg text-gray-700 leading-relaxed">
-                I'm a software engineer with a passion for teaching and education technology. 
+                I&apos;m a software engineer with a passion for teaching and education technology. 
                 Currently interning at Amazon working on AI-powered security tools, while pursuing 
                 an MS in Electrical Engineering at Stanford.
               </p>
@@ -61,9 +61,9 @@ export function About() {
               </p>
 
               <p className="text-lg text-gray-700 leading-relaxed">
-                When I'm not coding or teaching, you'll find me playing music, hiking, or 
+                When I&apos;m not coding or teaching, you&apos;ll find me playing music, hiking, or 
                 contributing to my community through organizations like The Music Connection, 
-                where I've facilitated over 1,250 hours of free music education.
+                where I&apos;ve facilitated over 1,250 hours of free music education.
               </p>
 
               {/* Quick Stats */}
@@ -113,6 +113,28 @@ export function About() {
               </motion.div>
             </motion.div>
           </div>
+
+          {/* Personal Touch - Dog Photo */}
+          <motion.div 
+            variants={itemVariants}
+            className="mt-16 text-center"
+          >
+            <div className="max-w-md mx-auto">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl opacity-20 blur-lg transform rotate-3" />
+                <div className="relative bg-white rounded-2xl p-6 shadow-xl">
+                  <img
+                    src="/assets/dog.jpg"
+                    alt="My dog"
+                    className="w-full h-48 object-cover rounded-xl mb-4"
+                  />
+                  <p className="text-gray-600 italic">
+                    &quot;When I&apos;m not coding, you&apos;ll find me with my best friend here! 🐕&quot;
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

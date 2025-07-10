@@ -26,7 +26,7 @@ export function Hero() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center container-custom">
+    <div className="min-h-screen flex items-center justify-center container-custom relative">
       <motion.div
         className="text-center relative z-20"
         variants={containerVariants}
