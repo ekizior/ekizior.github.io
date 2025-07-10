@@ -181,7 +181,7 @@ export function Contact() {
                   <img
                     src="/assets/dog.jpg"
                     alt="My dog"
-                    className="w-full h-32 object-cover rounded-lg mb-3"
+                    className="w-full h-48 object-contain rounded-lg mb-3"
                   />
                   <p className="text-sm text-gray-600 text-center">
                     &quot;My coding buddy says hi! 🐕✨&quot;

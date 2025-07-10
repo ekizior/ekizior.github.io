@@ -165,7 +165,7 @@ export function Skills() {
                   <img
                     src="/assets/dog.jpg"
                     alt="My dog"
-                    className="w-full h-48 object-cover rounded-xl mb-4"
+                    className="w-full h-64 object-contain rounded-xl mb-4"
                   />
                   <p className="text-gray-600 italic text-center">
                     &quot;Even my coding buddy approves of my skills! 🐕💻&quot;
