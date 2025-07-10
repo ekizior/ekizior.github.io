@@ -122,7 +122,7 @@ export function About() {
                     className="w-full h-64 object-contain rounded-xl mb-4"
                   />
                   <p className="text-gray-600 italic">
-                    &quot;When I&apos;m not coding, you&apos;ll find me with my best friend here! 🐕&quot;
+                    When I&apos;m not coding, you&apos;ll find me with my dogs! 🐕
                   </p>
                 </div>
               </div>
