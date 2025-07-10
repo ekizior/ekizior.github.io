@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   keywords: ['portfolio', 'personal website', 'developer', 'software engineer'],
   authors: [{ name: 'Erik Kizior' }],
   creator: 'Erik Kizior',
+  icons: {
+    icon: '/favicon.ico',
+  },
   openGraph: {
     title: 'Erik Kizior',
     description: 'Personal website and portfolio of Erik Kizior',
@@ -21,9 +24,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
       <body className="font-sans antialiased">
         {children}
       </body>
