@@ -43,27 +43,33 @@ export function AnimatedGradient() {
       
       {/* Floating particles */}
       <div className="absolute inset-0">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-primary-400 rounded-full opacity-20"
-            animate={{
-              x: [0, 100, 0],
-              y: [0, -100, 0],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: 20 + i * 3,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: i * 0.5,
-            }}
-            style={{
-              left: `${20 + i * 15}%`,
-              top: `${30 + i * 10}%`,
-            }}
-          />
-        ))}
+        {[...Array(15)].map((_, i) => {
+          const size = i < 5 ? 'w-1 h-1' : i < 10 ? 'w-2 h-2' : 'w-3 h-3'
+          const opacity = i < 5 ? 'opacity-10' : i < 10 ? 'opacity-15' : 'opacity-20'
+          const color = i % 3 === 0 ? 'bg-primary-400' : i % 3 === 1 ? 'bg-purple-400' : 'bg-blue-400'
+          
+          return (
+            <motion.div
+              key={i}
+              className={`absolute ${size} ${color} rounded-full ${opacity}`}
+              animate={{
+                x: [0, Math.random() * 200 - 100, 0],
+                y: [0, Math.random() * -200 + 100, 0],
+                scale: [1, 1.2 + Math.random() * 0.8, 1],
+              }}
+              transition={{
+                duration: 15 + Math.random() * 20,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: i * 0.3,
+              }}
+              style={{
+                left: `${10 + (i * 6) % 80}%`,
+                top: `${20 + (i * 7) % 60}%`,
+              }}
+            />
+          )
+        })}
       </div>
     </div>
   )
