@@ -56,7 +56,7 @@ const awards = [
     title: 'National Merit Scholar Finalist',
     issuer: 'National Merit Scholarship Corporation',
     date: 'Apr 2020',
-    description: 'Recognized for exceptional academic achievement and potential for success in rigorous college studies.',
+    description: 'Top 1% PSAT/NMSQT score in California with comprehensive academic and leadership evaluation.',
     icon: Star,
     color: 'blue'
   },
@@ -215,7 +215,7 @@ export function Education() {
               </div>
               <div className="text-center p-6 bg-white/50 rounded-xl backdrop-blur-sm">
                 <div className="text-3xl font-bold text-primary-600">96.7%</div>
-                <div className="text-sm text-gray-600">Student Feedback</div>
+                <div className="text-sm text-gray-600">Positive Student Feedback</div>
               </div>
               <div className="text-center p-6 bg-white/50 rounded-xl backdrop-blur-sm">
                 <div className="text-3xl font-bold text-primary-600">Top 10%</div>
