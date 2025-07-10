@@ -44,7 +44,7 @@ export function Contact() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-purple-500 mx-auto rounded-full" />
             <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
-              I&apos;m always interested in new opportunities, collaborations, or just a friendly chat about technology and education.
+              I love meeting new people and learning about their journeys. If you&apos;d like to connect, collaborate, or just chat about technology, teaching, or life, I&apos;d be happy to hear from you. Let&apos;s build something meaningful together.
             </p>
           </motion.div>
 

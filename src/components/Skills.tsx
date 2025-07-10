@@ -98,8 +98,7 @@ export function Skills() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-purple-500 mx-auto rounded-full" />
             <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
-              A comprehensive toolkit of technical skills and soft skills developed through education, 
-              teaching, and real-world projects.
+              I&apos;m always eager to learn, teach, and grow alongside others. My skills reflect not just what I&apos;ve studied, but the people I&apos;ve worked with and the challenges I&apos;ve embraced. I take pride in my technical foundation and my ability to communicate and collaborate.
             </p>
           </motion.div>
 
@@ -200,9 +199,7 @@ export function Skills() {
               <div className="bg-gradient-to-r from-primary-50 to-purple-50 rounded-xl p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-4">Learning Philosophy</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  &quot;I believe the best way to master a skill is to teach it. Through my experience 
-                  leading large-scale educational initiatives, I&apos;ve developed a deep understanding 
-                  of both technical concepts and how to communicate them effectively.&quot;
+                  I believe that teaching is one of the best ways to learn. I&apos;ve grown the most when helping others succeed, and I strive to create environments where curiosity and kindness are valued. Every project and every classroom has taught me something new, and I&apos;m grateful for the chance to keep learning with others.
                 </p>
               </div>
             </motion.div>

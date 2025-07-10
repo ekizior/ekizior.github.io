@@ -10,20 +10,20 @@ const experiences = [
     id: 1,
     title: 'Software Development Engineer Intern',
     company: 'Amazon',
-    period: 'May 2025 - Aug 2025',
-    location: 'Seattle, WA',
-    description: 'Developed an internal GenAI-powered threat analysis engine to automate security reviews for CPSS customer applications. Designed a two-step RAG pipeline that reduces manual effort by 5% and improves threat modeling efficiency.',
+    period: 'Jun 2025 - Present',
+    location: 'Boston, MA',
+    description: 'Building and deploying software solutions as part of the CPSS ProdSec team, with a focus on security and reliability. Collaborating with a diverse team of engineers and learning from their expertise every day.',
     skills: ['AI/ML', 'Security', 'Python', 'Microservices'],
     icon: Code,
     type: 'professional'
   },
   {
     id: 2,
-    title: 'Head Teaching Assistant',
+    title: 'Head Undergraduate Student Instructor & Instructor',
     company: 'UC Berkeley, CS61B',
     period: 'Aug 2024 - Jun 2025',
     location: 'Berkeley, CA',
-    description: 'Led a 40+ member teaching team for an 800+ student course. Oversaw curriculum development, mentored junior staff, and designed internal tools to streamline assignments and grading.',
+    description: 'Led a teaching team for CS61B (Data Structures), supporting over 800 students and mentoring junior staff. Developed curriculum, internal tools, and resources to help students succeed.',
     skills: ['Teaching', 'Leadership', 'Java', 'Project Management'],
     icon: Users,
     type: 'teaching'
@@ -32,9 +32,9 @@ const experiences = [
     id: 3,
     title: 'Tutor Enrichment Director',
     company: 'The Music Connection',
-    period: 'Aug 2023 - Jun 2025',
+    period: 'Aug 2023 - Present',
     location: 'Berkeley, CA',
-    description: 'Spearheaded development of custom mail merger software, saving 20+ board hours per semester. Facilitated 1250+ hours of free music education for K-12 students.',
+    description: 'Helped facilitate over 1,250 hours of free music education for K-12 students in partnership with local school districts. Designed and led workshops for tutors, focusing on pedagogy and music theory.',
     skills: ['Software Development', 'Leadership', 'Community Service'],
     icon: Users,
     type: 'leadership'
@@ -43,9 +43,9 @@ const experiences = [
     id: 4,
     title: 'Research Assistant',
     company: 'UC Berkeley, Chunlei Lab',
-    period: 'Jun 2024 - May 2025',
+    period: 'Jul 2024 - Present',
     location: 'Berkeley, CA',
-    description: 'MRI Reconstruction Research with Professor Chunlei Liu. Trained U-Net models to reconstruct high-resolution MR images from structured undersampled k-space acquisitions.',
+    description: 'Working on MRI reconstruction research, applying deep learning to improve medical imaging. Collaborating with faculty and students to explore new ideas and approaches.',
     skills: ['Research', 'AI/ML', 'MATLAB', 'Medical Imaging'],
     icon: GraduationCap,
     type: 'research'
@@ -95,7 +95,7 @@ export function Experience() {
           <div className="relative max-w-4xl mx-auto">
             {/* Timeline Line */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-purple-500" />
-            
+
             <div className="space-y-12">
               {experiences.map((experience, index) => {
                 const Icon = experience.icon
@@ -107,7 +107,7 @@ export function Experience() {
                   >
                     {/* Timeline Dot */}
                     <div className="absolute left-6 w-4 h-4 bg-white border-4 border-primary-500 rounded-full shadow-lg z-10" />
-                    
+
                     {/* Content Card */}
                     <motion.div
                       className="ml-16 flex-1 bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"

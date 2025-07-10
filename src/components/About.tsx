@@ -48,22 +48,15 @@ export function About() {
             {/* Personal Story */}
             <motion.div variants={itemVariants} className="space-y-6">
               <p className="text-lg text-gray-700 leading-relaxed">
-                I&apos;m a software engineer with a passion for teaching and education technology. 
-                Currently interning at Amazon working on AI-powered security tools, while pursuing 
-                an MS in Electrical Engineering at Stanford.
+                I&apos;m Erik, and I care deeply about building things that help people learn, grow, and connect. My path has taken me from the Central Valley to Berkeley and now Stanford, and I&apos;ve been fortunate to work with and learn from so many inspiring people along the way.
               </p>
               
               <p className="text-lg text-gray-700 leading-relaxed">
-                My journey began as a high school valedictorian with a perfect 1580 SAT score, 
-                leading me to UC Berkeley where I graduated with a 3.93 GPA in EECS. Along the way, 
-                I discovered my love for teaching, leading large-scale educational initiatives and 
-                mentoring hundreds of students.
+                At UC Berkeley, I studied Electrical Engineering and Computer Science and found a real sense of purpose in teaching and mentoring. Whether leading a teaching team, developing new tools for students, or supporting others in the classroom, I strive to create spaces where everyone can thrive.
               </p>
 
               <p className="text-lg text-gray-700 leading-relaxed">
-                When I&apos;m not coding or teaching, you&apos;ll find me playing music, hiking, or 
-                contributing to my community through organizations like The Music Connection, 
-                where I&apos;ve facilitated over 1,250 hours of free music education.
+                I&apos;m currently interning at Amazon, where I get to collaborate with talented engineers and contribute to projects that challenge me to grow. Outside of work, I love making music, eating burritos, gaming, and volunteering with organizations that bring people together through education and the arts.
               </p>
 
               {/* Quick Stats */}
