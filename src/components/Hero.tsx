@@ -25,6 +25,13 @@ export function Hero() {
     },
   }
 
+  const scrollToAbout = () => {
+    const element = document.getElementById('about')
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center container-custom relative">
       <motion.div
@@ -63,11 +70,12 @@ export function Hero() {
           variants={itemVariants}
         >
           <motion.button
+            onClick={scrollToAbout}
             className="btn-primary flex items-center space-x-2 backdrop-blur-sm bg-white/10 border border-white/20 shadow-xl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span>View Projects</span>
+            <span>Explore</span>
             <ArrowDown className="w-4 h-4" />
           </motion.button>
         </motion.div>
