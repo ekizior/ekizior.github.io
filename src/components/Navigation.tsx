@@ -15,15 +15,22 @@ const navItems = [
 export function Navigation() {
   const [activeSection, setActiveSection] = useState('')
   const [isScrolled, setIsScrolled] = useState(false)
+  const [progress, setProgress] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100)
       
-      // Update active section based on scroll position
+      // Calculate smooth progress based on scroll position
       const sections = navItems.map(item => document.getElementById(item.id))
       const scrollPosition = window.scrollY + 200
-
+      const documentHeight = document.documentElement.scrollHeight - window.innerHeight
+      
+      // Calculate overall progress (0 to 1)
+      const overallProgress = Math.min(Math.max(scrollPosition / documentHeight, 0), 1)
+      setProgress(overallProgress)
+      
+      // Update active section based on scroll position
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i]
         if (section && section.offsetTop <= scrollPosition) {
@@ -102,9 +109,12 @@ export function Navigation() {
       <motion.div
         className="h-1 bg-gradient-to-r from-primary-500 to-purple-500"
         style={{
-          width: `${(navItems.findIndex(item => item.id === activeSection) + 1) / navItems.length * 100}%`
+          width: `${progress * 100}%`
         }}
-        transition={{ duration: 0.3 }}
+        transition={{ 
+          duration: 0.1,
+          ease: "easeOut"
+        }}
       />
     </motion.nav>
   )
