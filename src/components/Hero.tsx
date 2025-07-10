@@ -54,8 +54,8 @@ export function Hero() {
           variants={itemVariants}
         >
           <SocialLink href="https://github.com/ekizior" icon={Github} label="GitHub" />
-          <SocialLink href="https://linkedin.com/in/ekizior" icon={Linkedin} label="LinkedIn" />
-          <SocialLink href="mailto:erik@example.com" icon={Mail} label="Email" />
+          <SocialLink href="https://www.linkedin.com/in/erikkizior/" icon={Linkedin} label="LinkedIn" />
+          <SocialLink href="mailto:kiziorerik@gmail.com" icon={Mail} label="Email" />
         </motion.div>
         
         <motion.div

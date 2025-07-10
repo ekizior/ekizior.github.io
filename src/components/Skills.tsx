@@ -1,68 +1,87 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { Code, Database, Globe, Server } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { Code, Globe, Database, Server, BookOpen, Users, Zap, Shield, ChevronLeft, ChevronRight } from 'lucide-react'
 
-const skillCategories = [
+const skillCards = [
   {
     id: 1,
-    title: 'Programming Languages',
-    icon: Code,
-    skills: [
-      { name: 'Java', level: 95 },
-      { name: 'Python', level: 90 },
-      { name: 'Go', level: 85 },
-      { name: 'C/C++', level: 80 },
-      { name: 'JavaScript/TypeScript', level: 85 },
-      { name: 'MATLAB', level: 75 }
-    ],
-    color: 'blue'
+    title: 'Teaching & Leadership',
+    icon: Users,
+    description: 'Led 40+ member teaching team for 800+ students. 96.7% positive feedback.',
+    experience: '3+ years',
+    color: 'blue',
+    details: ['Head TA for CS61B', 'Outstanding GSI Award', 'Curriculum Development']
   },
   {
     id: 2,
-    title: 'Web Technologies',
-    icon: Globe,
-    skills: [
-      { name: 'React', level: 85 },
-      { name: 'Node.js', level: 80 },
-      { name: 'Express', level: 75 },
-      { name: 'HTML/CSS', level: 90 },
-      { name: 'Angular', level: 70 }
-    ],
-    color: 'green'
+    title: 'Software Engineering',
+    icon: Code,
+    description: 'Full-stack development with focus on scalable, secure applications.',
+    experience: '4+ years',
+    color: 'green',
+    details: ['Java, Python, Go', 'React, Node.js', 'Microservices Architecture']
   },
   {
     id: 3,
-    title: 'Database & DevOps',
-    icon: Database,
-    skills: [
-      { name: 'MongoDB', level: 80 },
-      { name: 'SQL', level: 85 },
-      { name: 'Docker', level: 75 },
-      { name: 'Git/GitHub', level: 90 }
-    ],
-    color: 'purple'
+    title: 'Security & AI',
+    icon: Shield,
+    description: 'Developed GenAI threat analysis engine. Security-first approach.',
+    experience: '2+ years',
+    color: 'purple',
+    details: ['Application Security', 'LLM Integration', 'Threat Modeling']
   },
   {
     id: 4,
-    title: 'Specialized Skills',
-    icon: Server,
-    skills: [
-      { name: 'AI/ML', level: 85 },
-      { name: 'Security', level: 80 },
-      { name: 'Teaching', level: 95 },
-      { name: 'Leadership', level: 90 },
-      { name: 'Project Management', level: 85 }
-    ],
-    color: 'orange'
+    title: 'Project Management',
+    icon: Zap,
+    description: 'Led cross-functional teams and delivered complex technical projects.',
+    experience: '3+ years',
+    color: 'orange',
+    details: ['Agile Development', 'Team Leadership', 'Technical Planning']
+  },
+  {
+    id: 5,
+    title: 'Research & Innovation',
+    icon: BookOpen,
+    description: 'MRI reconstruction research and academic contributions.',
+    experience: '1+ year',
+    color: 'indigo',
+    details: ['U-Net Models', 'Medical Imaging', 'Research Publications']
+  },
+  {
+    id: 6,
+    title: 'Web Technologies',
+    icon: Globe,
+    description: 'Modern web development with focus on user experience.',
+    experience: '3+ years',
+    color: 'teal',
+    details: ['React/Next.js', 'TypeScript', 'Responsive Design']
   }
 ]
 
 export function Skills() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const [activeCard, setActiveCard] = useState(0)
+  const [direction, setDirection] = useState(0)
+
+  const nextCard = () => {
+    setDirection(1)
+    setActiveCard((prev) => (prev + 1) % skillCards.length)
+  }
+
+  const prevCard = () => {
+    setDirection(-1)
+    setActiveCard((prev) => (prev - 1 + skillCards.length) % skillCards.length)
+  }
+
+  const goToCard = (index: number) => {
+    setDirection(index > activeCard ? 1 : -1)
+    setActiveCard(index)
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -83,6 +102,29 @@ export function Skills() {
     },
   }
 
+  const cardVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 200 : -200,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
+    },
+    exit: (direction: number) => ({
+      x: direction < 0 ? 200 : -200,
+      opacity: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeIn",
+      },
+    }),
+  }
+
   return (
     <section id="skills" ref={ref} className="py-20 bg-gray-50/50 backdrop-blur-sm">
       <div className="container-custom">
@@ -98,80 +140,131 @@ export function Skills() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-purple-500 mx-auto rounded-full" />
             <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
-              I&apos;m always eager to learn, teach, and grow alongside others. My skills reflect not just what I&apos;ve studied, but the people I&apos;ve worked with and the challenges I&apos;ve embraced. I take pride in my technical foundation and my ability to communicate and collaborate.
+              I believe in learning through doing and teaching. My expertise comes from real projects, 
+              meaningful collaborations, and the privilege of helping others grow.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Skills Categories */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              {skillCategories.map((category) => {
-                const Icon = category.icon
-                return (
-                  <div key={category.id} className="bg-white rounded-xl p-6 shadow-lg">
-                    <div className="flex items-center space-x-3 mb-6">
-                      <div className={`p-2 rounded-lg ${
-                        category.color === 'blue' ? 'bg-blue-100 text-blue-600' :
-                        category.color === 'green' ? 'bg-green-100 text-green-600' :
-                        category.color === 'purple' ? 'bg-purple-100 text-purple-600' :
-                        'bg-orange-100 text-orange-600'
-                      }`}>
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-800">
-                        {category.title}
-                      </h3>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      {category.skills.map((skill, index) => (
-                        <div key={index}>
-                          <div className="flex justify-between items-center mb-2">
-                            <span className="text-sm font-medium text-gray-700">
-                              {skill.name}
-                            </span>
-                            <span className="text-xs text-gray-500">
-                              {skill.level}%
-                            </span>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Animated Skill Cards */}
+            <motion.div variants={itemVariants} className="relative">
+              <div className="relative h-96 flex items-center justify-center">
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
+                    key={activeCard}
+                    custom={direction}
+                    variants={cardVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    className="absolute w-full max-w-sm"
+                    style={{
+                      willChange: 'transform, opacity',
+                      transform: 'translateZ(0)',
+                    }}
+                  >
+                    {(() => {
+                      const card = skillCards[activeCard]
+                      const Icon = card.icon
+                      
+                      return (
+                        <div className={`bg-white rounded-2xl p-8 shadow-xl border-2 hover:shadow-2xl transition-shadow duration-300 ${
+                          card.color === 'blue' ? 'border-blue-200' :
+                          card.color === 'green' ? 'border-green-200' :
+                          card.color === 'purple' ? 'border-purple-200' :
+                          card.color === 'orange' ? 'border-orange-200' :
+                          card.color === 'indigo' ? 'border-indigo-200' :
+                          'border-teal-200'
+                        }`}>
+                          <div className="flex items-center space-x-4 mb-6">
+                            <div className={`p-3 rounded-xl ${
+                              card.color === 'blue' ? 'bg-blue-100 text-blue-600' :
+                              card.color === 'green' ? 'bg-green-100 text-green-600' :
+                              card.color === 'purple' ? 'bg-purple-100 text-purple-600' :
+                              card.color === 'orange' ? 'bg-orange-100 text-orange-600' :
+                              card.color === 'indigo' ? 'bg-indigo-100 text-indigo-600' :
+                              'bg-teal-100 text-teal-600'
+                            }`}>
+                              <Icon className="w-6 h-6" />
+                            </div>
+                            <div>
+                              <h3 className="text-xl font-bold text-gray-800">{card.title}</h3>
+                              <p className="text-sm text-gray-500">{card.experience}</p>
+                            </div>
                           </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2">
-                            <motion.div
-                              className={`h-2 rounded-full ${
-                                category.color === 'blue' ? 'bg-blue-500' :
-                                category.color === 'green' ? 'bg-green-500' :
-                                category.color === 'purple' ? 'bg-purple-500' :
-                                'bg-orange-500'
-                              }`}
-                              initial={{ width: 0 }}
-                              animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
-                              transition={{ duration: 1, delay: index * 0.1 }}
-                            />
+                          
+                          <p className="text-gray-700 mb-6 leading-relaxed">
+                            {card.description}
+                          </p>
+                          
+                          <div className="space-y-2">
+                            {card.details.map((detail, idx) => (
+                              <div key={idx} className="flex items-center space-x-2">
+                                <div className={`w-2 h-2 rounded-full ${
+                                  card.color === 'blue' ? 'bg-blue-500' :
+                                  card.color === 'green' ? 'bg-green-500' :
+                                  card.color === 'purple' ? 'bg-purple-500' :
+                                  card.color === 'orange' ? 'bg-orange-500' :
+                                  card.color === 'indigo' ? 'bg-indigo-500' :
+                                  'bg-teal-500'
+                                }`} />
+                                <span className="text-sm text-gray-600">{detail}</span>
+                              </div>
+                            ))}
                           </div>
                         </div>
-                      ))}
-                    </div>
-                  </div>
-                )
-              })}
+                      )
+                    })()}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+              
+              {/* Navigation Controls */}
+              <div className="flex justify-center items-center space-x-6 mt-8">
+                <motion.button
+                  onClick={prevCard}
+                  className="p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{ willChange: 'transform' }}
+                >
+                  <ChevronLeft className="w-5 h-5 text-gray-600" />
+                </motion.button>
+                
+                {/* Card Counter */}
+                <div className="text-sm text-gray-600 font-medium">
+                  {activeCard + 1} of {skillCards.length}
+                </div>
+                
+                <motion.button
+                  onClick={nextCard}
+                  className="p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{ willChange: 'transform' }}
+                >
+                  <ChevronRight className="w-5 h-5 text-gray-600" />
+                </motion.button>
+              </div>
+              
+              {/* Navigation Dots */}
+              <div className="flex justify-center space-x-2 mt-4">
+                {skillCards.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToCard(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                      index === activeCard 
+                        ? 'bg-primary-500 scale-125' 
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                  />
+                ))}
+              </div>
             </motion.div>
 
-            {/* Personal Touch & Additional Info */}
+            {/* Additional Info */}
             <motion.div variants={itemVariants} className="space-y-8">
-              {/* Personal Touch - Dog Photo */}
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl opacity-20 blur-lg transform -rotate-2" />
-                <div className="relative bg-white rounded-2xl p-6 shadow-xl">
-                  <img
-                    src="/assets/dog.jpg"
-                    alt="My dog"
-                    className="w-full h-64 object-contain rounded-xl mb-4"
-                  />
-                  <p className="text-gray-600 italic text-center">
-                    &quot;Even my coding buddy approves of my skills! 🐕💻&quot;
-                  </p>
-                </div>
-              </div>
-
               {/* Key Achievements */}
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <h3 className="text-xl font-bold text-gray-800 mb-4">Key Achievements</h3>
