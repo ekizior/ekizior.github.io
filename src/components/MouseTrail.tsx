@@ -6,25 +6,49 @@ import { useEffect, useState } from 'react'
 export function MouseTrail() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isVisible, setIsVisible] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-      setIsVisible(true)
+    // Check if device is mobile/touch device
+    const checkMobile = () => {
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+      const isSmallScreen = window.innerWidth < 768
+      setIsMobile(isTouchDevice || isSmallScreen)
     }
 
-    const handleMouseLeave = () => {
-      setIsVisible(false)
-    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
 
-    window.addEventListener('mousemove', handleMouseMove)
-    window.addEventListener('mouseleave', handleMouseLeave)
+    // Only add mouse event listeners if not on mobile
+    if (!isMobile) {
+      const handleMouseMove = (e: MouseEvent) => {
+        setMousePosition({ x: e.clientX, y: e.clientY })
+        setIsVisible(true)
+      }
+
+      const handleMouseLeave = () => {
+        setIsVisible(false)
+      }
+
+      window.addEventListener('mousemove', handleMouseMove)
+      window.addEventListener('mouseleave', handleMouseLeave)
+
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove)
+        window.removeEventListener('mouseleave', handleMouseLeave)
+        window.removeEventListener('resize', checkMobile)
+      }
+    }
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      window.removeEventListener('mouseleave', handleMouseLeave)
+      window.removeEventListener('resize', checkMobile)
     }
-  }, [])
+  }, [isMobile])
+
+  // Don't render anything on mobile devices
+  if (isMobile) {
+    return null
+  }
 
   return (
     <motion.div
