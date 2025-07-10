@@ -276,7 +276,7 @@ export function Projects() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-purple-500 mx-auto rounded-full" />
             <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
-              Here are some of the projects I've worked on. Each one represents a unique challenge and learning opportunity.
+              Here are some of the projects I&apos;ve worked on. Each one represents a unique challenge and learning opportunity.
             </p>
           </motion.div>
 

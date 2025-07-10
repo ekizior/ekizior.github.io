@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Image from 'next/image'
 
 export function About() {
   const ref = useRef(null)
@@ -80,9 +81,11 @@ export function About() {
               <div className="relative w-80 h-80 mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-purple-500 rounded-full opacity-20 blur-xl" />
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                  <img
+                  <Image
                     src="/assets/linkedin_headshot.jpg"
                     alt="Erik Kizior"
+                    width={320}
+                    height={320}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -116,9 +119,11 @@ export function About() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl opacity-20 blur-lg transform rotate-3" />
                 <div className="relative bg-white rounded-2xl p-6 shadow-xl">
-                  <img
+                  <Image
                     src="/assets/dog.jpg"
                     alt="My dog"
+                    width={400}
+                    height={256}
                     className="w-full h-64 object-contain rounded-xl mb-4"
                   />
                   <p className="text-gray-600 italic">
