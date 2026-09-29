@@ -1,0 +1,133 @@
+Act as a world-class front-end design engineer and art director.
+
+I'm replacing my old, vibe-coded portfolio at ekizior.github.io with a lightweight, hyper-clean, single-page site built from scratch in Next.js (App Router), TypeScript, Tailwind CSS, and Lucide React. This is a teardown and rebuild, not a restyle. Keep nothing from the old codebase unless I say so. The only things carried over are my headshot and the images for my three featured projects.
+
+### 1. Aesthetic Direction (developer minimalism, text-editor portfolios)
+- Style: A sleek personal developer index. Compact, very legible, content first.
+- Typography: Geist Sans for body text. Geist Mono for metadata, dates, tags, and code-style accents. Load both through `next/font` so they're self-hosted, with no external font requests.
+- Palette (dark only, no theme toggle):
+  - Background `#121212`
+  - Body text `#A1A1AA`
+  - Headings and names `#EDEDED`
+  - Borders and dividers `#27272A`
+  - Everything must meet WCAG AA contrast.
+- Layout: One centered column (max-width ~680px) with generous vertical whitespace. Flat design, no clutter.
+- Images: Only my headshot and the featured project images. Show them flat, with a 1px `#27272A` border, slightly rounded corners, and no shadows, filters, or overlays. Keep pixel art crisp (`image-rendering: pixelated`).
+- Icons: Links are text, not brand logos. Use Lucide only for tiny utility glyphs, such as `ArrowUpRight` on external links.
+
+### 2. Content & Layout Structure
+Use exactly these sections, in this order:
+1. **Header**: A small circular headshot (~88px) beside the name, one-liner, and location. Then inline text links (GitHub, LinkedIn, Email) whose underline fades in on hover. No resume link, and no downloadable resume anywhere on the site.
+2. **About**: One short, conversational paragraph.
+3. **Experience**: A chronological ledger. Each row has Role · Company on the left and years in mono, right-aligned. Put a 1–2 sentence impact line under each row.
+4. **Featured Projects**: My three favorite projects, shown first. Each is a single-column row with a 4:3 image on the left (stacked above the text on mobile), then the title (linked if there's a URL), year in mono on the right, one sentence, and tech tags.
+5. **More Projects**: The remaining projects as a minimalist single-column list, not cards, with no images. Each item has a title (linked if there's a URL), year in mono on the right, one sentence, and tech tags.
+   - Tech tags in both project sections are tiny mono pills (`text-xs`, 1px border in `#27272A`, no fill).
+6. **Education**: Two compact rows in the same ledger style as Experience.
+7. **Footer**: Copyright, a "last updated" date, and a friendly sign-off.
+
+### 3. Absolute Banned List (AI tropes to avoid)
+- NO purple or blue glowing gradients, neon accents, or mesh backdrops.
+- NO glassmorphism, `backdrop-blur`, or floating translucent cards.
+- NO 3-column feature grids or marketing-style cards.
+- NO 3D graphics, decorative illustrations, particle canvases, or cursor effects. Project screenshots and artwork in Featured Projects are fine.
+- NO entry or scroll animations. The only transitions allowed are 150ms opacity or color changes on hover. Respect `prefers-reduced-motion`.
+- NO boilerplate copy. Render the text in Section 5 exactly as written. Don't add stats, adjectives, or claims.
+- NO skill bars, percentage meters, or logo walls.
+
+### 4. Rebuild & Cleanup Requirements
+- **Hosting**: GitHub Pages at `ekizior.github.io` (user site, no `basePath`).
+  - Use static export: `output: 'export'`, `images: { unoptimized: true }`, `trailingSlash: true`.
+  - Add `public/.nojekyll`.
+  - Add a GitHub Actions workflow (`.github/workflows/deploy.yml`) that builds and deploys `out/` with `actions/upload-pages-artifact` and `actions/deploy-pages`.
+- **Dependencies**: Only `next`, `react`, `react-dom`, `tailwindcss` (v4, with `@tailwindcss/postcss`), `lucide-react`, TypeScript, and the required types. No animation libraries, UI kits, CMS, analytics, or icon packs.
+- **Architecture**:
+  - Server Components only. No `"use client"`, since nothing on the page needs it.
+  - All copy and image references live in one typed file, `content.ts`. Components only render that data, so future updates touch one file. A project is featured if it has an `image`. Images are static imports from `public/images/`, so Next knows their dimensions.
+  - Files: `app/layout.tsx`, `app/page.tsx`, `app/globals.css`, `app/icon.svg`, `content.ts`, and at most 4 small components (`Section`, `LedgerRow`, `Tag`, `FeaturedProject`). Aim for under ~300 lines of app code, not counting `content.ts`.
+  - Resize images before committing them: the headshot is ~320px and project images are at most ~1000px on the long side. Every image needs meaningful `alt` text.
+- **Semantics & accessibility**:
+  - Use `<header>`, `<main>`, `<section>` with `aria-labelledby`, `<footer>`, and real `<ul>` / `<li>` lists.
+  - Use `<time>` for dates.
+  - Give every interactive element a visible `:focus-visible` style.
+  - External links get `target="_blank" rel="noopener noreferrer"`.
+- **Metadata**: Title, description, Open Graph tags, and a simple favicon (monogram "EK" or a plain square, nothing illustrative).
+- **Cleanup**: Delete these leftovers from the old site: `src/`, `public/assets/`, `public/favicon.ico`, `.eslintrc.json`, `tailwind.config.ts`, and `README.md`. Keep `public/images/`. Once `src/` is gone, `"src"` can come out of the `tsconfig.json` `exclude` list.
+
+### 5. Content (render verbatim)
+
+**Header**
+- Name: Erik Kizior
+- One-liner: Software & hardware engineer · M.S. EE at Stanford
+- Location: Stanford, CA
+- Links:
+  - GitHub → https://github.com/ekizior
+  - LinkedIn → https://www.linkedin.com/in/erikkizior/
+  - Email → mailto:kiziorerik@gmail.com
+- Photo: `public/images/headshot.jpg` (alt: "Portrait of Erik Kizior")
+
+**About**
+I'm an electrical engineering master's student at Stanford who works across the stack, from agentic AI systems down to RTL. This summer at Meta I built an AI platform that triages product signals for Instagram. The summer before, at Amazon, I built a generative-AI engine that automates security threat reviews. At Stanford's Tambe Lab I research hardware for machine learning. At Berkeley I spent two years teaching data structures, most recently leading a 48-person staff for an 800+ student course. I care about systems that are measurable, reliable, and easy for the next engineer to pick up.
+
+**Experience**
+1. Graduate Researcher · Stanford University, Tambe Lab · 2026–Present
+   Computer architecture research on hardware systems for machine learning.
+2. Software Engineer Intern · Meta, Instagram Metrics · 2026
+   Designed and shipped an agentic AI platform (Hack, React) that classifies UI-detected signals into Instagram's metric catalog. It reached ~14% higher coverage than human triage at ~98% precision and saves an estimated 152 engineer-hours per year.
+3. Software Development Engineer Intern · Amazon, Application Security · 2025
+   Built a generative-AI threat analysis engine on AWS (Bedrock, Lambda, Step Functions) that uses a two-stage RAG pipeline to read design diagrams and flag security threats. It supports 20+ security engineers and saves ~120 engineer-hours per year.
+4. Undergraduate Researcher · UC Berkeley, MRI Reconstruction · 2024–2025
+   Trained a PyTorch U-Net to reconstruct MRI scans from undersampled k-space data (fastMRI, 56k+ samples), reaching >0.95 SSIM. Cut training time by more than 10x with distributed GPU training on the Savio HPC cluster.
+5. Head TA & Instructor · UC Berkeley EECS, CS61B/CS61BL · 2023–2025
+   Co-taught the summer course to 350+ students with 96.7% satisfaction, then led a 48-person teaching staff for an 800+ student course. Built autograders and internal course tooling along the way.
+6. Tutor Enrichment Director · The Music Connection · 2023–2025
+   Recruited 50+ tutors per semester for free K–12 music lessons in Berkeley and Oakland. Built a Gmail API tool that automated tutor–family matching and raised pairings by 37.5%.
+
+**Featured Projects** (in this order)
+1. Gravitas · 2024 · https://huanger2.itch.io/gravitas
+   An original game developed with Unity. See if you can solve all of the levels!
+   Tags: Unity, C#, Game Development
+   Image: `public/images/gravitas.png` (alt: "Gravitas title screen")
+2. Rocky's Mystery Dungeon · 2024
+   A recreation of Pokemon Mystery Dungeon. Navigate randomly generated 2D worlds while fighting enemies.
+   Tags: Java, Artificial Intelligence, Game Development
+   Image: `public/images/rockys-mystery-dungeon.png` (alt: "Pixel-art corgi character from Rocky's Mystery Dungeon"; pixel art, shown uncropped on white)
+3. Semiconductor Device Microfabrication · 2024
+   Carried out a four-mask process in Berkeley's Microfabrication laboratory to fabricate functional semiconductor devices, simple IC circuits, and surface microstructures on a Silicon wafer.
+   Tags: MOSFETs, MEMS, Microfabrication, Semiconductor Physics
+   Image: `public/images/microfabrication.jpg` (alt: "Probe station testing a fabricated silicon wafer")
+
+**More Projects** (in this order)
+1. DNN Hardware Accelerator · 2026 · https://github.com/ekizior
+   A full RTL-to-GDS 4×4 systolic array for ResNet-18 on SkyWater 130nm, later re-implemented in Catapult HLS and scaled to 16×16.
+   Tags: Verilog, C++ HLS, Synopsys, Cadence Innovus, SKY130
+2. Pipelined RISC-V CPU · 2024
+   A 3-stage RV32I processor on FPGA whose forwarding logic resolves every read-after-write hazard without stalling.
+   Tags: Verilog, RISC-V, FPGA
+3. Secure File Sharing System · 2023
+   End-to-end encrypted file storage and sharing using AES, RSA, and SHA-256, tested against man-in-the-middle and replay attacks.
+   Tags: Go, Cryptography
+4. Git from Scratch · 2024
+   A version-control system with commits, branching, and merge conflict resolution, built on SHA-1 content-addressed snapshots.
+   Tags: Java, File Systems
+5. Pacman AI Agents · 2024
+   A* search, minimax with alpha-beta pruning, Q-learning, and HMM-based ghost tracking from noisy sensor data.
+   Tags: Python, Reinforcement Learning, Probabilistic Inference
+6. Voice-Controlled Car · 2022
+   A custom mic board with a bandpass filter that feeds PCA and k-means speech classification to drive an Arduino car.
+   Tags: Arduino, Python, Signal Processing
+
+**Education**
+1. M.S. Electrical Engineering · Stanford University · 2025–2027
+2. B.S. Electrical Engineering & Computer Science · UC Berkeley · 2021–2025
+   Cum Laude · Tau Beta Pi · Eta Kappa Nu · Outstanding GSI Award
+
+**Footer**
+© 2026 Erik Kizior · Last updated September 2026 · Thanks for stopping by.
+
+### 6. Deliverables
+1. A list of old files and folders to delete.
+2. The full contents of every new file (`package.json`, `next.config.js`, `postcss.config.js`, `app/*`, `content.ts`, components, deploy workflow).
+3. Local run, build, and deploy commands.
+
+Produce clean, production-ready, semantic React code with no placeholder comments or TODOs.
