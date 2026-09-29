@@ -52,7 +52,7 @@ Use exactly these sections, in this order:
   - Give every interactive element a visible `:focus-visible` style.
   - External links get `target="_blank" rel="noopener noreferrer"`.
 - **Metadata**: Title, description, Open Graph tags, and a simple favicon (monogram "EK" or a plain square, nothing illustrative).
-- **Cleanup**: Delete these leftovers from the old site: `src/`, `public/assets/`, `public/favicon.ico`, `.eslintrc.json`, `tailwind.config.ts`, and `README.md`. Keep `public/images/`. Once `src/` is gone, `"src"` can come out of the `tsconfig.json` `exclude` list.
+- **Cleanup**: The old site has been removed. Its original images remain in `public/assets/` for possible reuse; the site only references resized copies in `public/images/`.
 
 ### 5. Content (render verbatim)
 
